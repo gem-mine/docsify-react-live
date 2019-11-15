@@ -2,7 +2,15 @@ import React, { useState } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
-export default function CodeBlock({ code, className, live, render, scope, title, markdown }) {
+export default function CodeBlock({ 
+  code,
+  className,
+  live,
+  render,
+  scope,
+  title,
+  markdown
+}) {
   const language = className.replace(/language-/, '')
   const [codeShow, setCodeShow] = useState(true)
   if (live) {

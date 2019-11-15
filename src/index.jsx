@@ -7,7 +7,16 @@ const cssResources = '@import url("//unpkg.com/element-ui/lib/theme-default/inde
 const bootCode = ''
 
 const code = `
-  <desc>hello word</desc>
+  <title>测试组件标题</title>
+  <desc>
+  测试组件描述
+  - a
+  - b
+  - c
+  </desc>
+  <style>
+    .test{}
+  <style>
   <script>
     class Application extends React.Component {
       render() {
