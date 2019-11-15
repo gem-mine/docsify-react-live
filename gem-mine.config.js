@@ -1,10 +1,8 @@
-const { proxyConfig } = require('./src/config/request/proxy')
-
 module.exports = {
-  /**
-   * 本地开发时，需要代理转发的请求
-   */
-  proxyConfig,
+  showDevEntry: false,
+  css: {
+    requireModuleExtension: true
+  },
   chainWebpack() {
     // use webpack-chain
   },
