@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom'
 import { generateComponent } from './components'
 import './assets/dev.less'
 
-const cssResources = '@import url("//unpkg.com/element-ui/lib/theme-default/index.css");'
-const bootCode = ''
-
 const code = `
   <title>测试组件标题</title>
   <desc>
@@ -15,8 +12,10 @@ const code = `
   - c
   </desc>
   <style>
-    .test{}
-  <style>
+    .test{
+      height: 100%
+    }
+  </style>
   <script>
     class Application extends React.Component {
       render() {
@@ -34,10 +33,12 @@ const code = `
   </script>
 `
 
-const Component = generateComponent(code, 'jsx', '', cssResources, bootCode)
+const Component = generateComponent(code, 'jsx')
 
 
 ReactDOM.render(
   <Component/>,
   document.getElementById('apphook')
 )
+
+module.hot && module.hot.accept()

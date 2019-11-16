@@ -23,7 +23,7 @@ export const generateComponent = function(
           code= {script}
           className="className"
           live="true"
-          title="xx"
+          title="xxx"
           markdown={desc}
         >
         </CodeBlock>
