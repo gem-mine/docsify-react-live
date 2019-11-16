@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { generateComponent } from './components'
+import { createComponent } from './component'
 import './assets/dev.less'
 
 const code = `
+  <className>demo-class</className>
   <title>测试组件标题</title>
   <desc>
   测试组件描述
@@ -12,8 +13,8 @@ const code = `
   - c
   </desc>
   <style>
-    .test{
-      height: 100%
+    body {
+      height: 30px;
     }
   </style>
   <script>
@@ -33,8 +34,7 @@ const code = `
   </script>
 `
 
-const Component = generateComponent(code, 'jsx')
-
+const Component = createComponent(code, true)
 
 ReactDOM.render(
   <Component/>,

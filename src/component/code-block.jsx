@@ -1,51 +1,63 @@
-import React, { useState } from 'react'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import React, { useState, watch } from 'react'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
+
+import theme from './palenight'
+import { createStyle, removeStyle }from '../util/style'
+import generateGuid from '../util/guid'
 
 export default function CodeBlock({ 
   code,
-  className,
+  style,
+  className = '',
   live,
-  render,
-  scope,
   title,
-  markdown
+  desc,
+  scope
 }) {
-  const language = className.replace(/language-/, '')
+  const [guid] = useState(generateGuid())
+  if (style) {
+    createStyle(style, guid)
+    watch(() => {
+      return () => {
+        removeStyle(guid)
+      }
+    })
+  }
   const [codeShow, setCodeShow] = useState(true)
+
   if (live) {
     return (
-      <div className="code-box">
+      <div className={`code-box ${className}`}>
         <LiveProvider
           code={code.trim()}
           transformCode={code => code}
           scope={{React}}
+          theme={theme}
         >
           <div className="code-box-demo">
             <LivePreview />
           </div>
           <div className="code-box-meta markdown">
             { title && <div className="code-box-title"><a>{title}</a></div>}
-            { markdown }
-            <span className="code-expand-icon" onClick={() => {setCodeShow(!codeShow)}}>
+            <div dangerouslySetInnerHTML={ {__html: desc} } />
+            <div className="code-expand-icon" onClick={() => {setCodeShow(!codeShow)}}>
               <img alt="expand code" src={require("@/assets/code-open.svg")} className={codeShow ? 'code-expand-icon-show' : 'code-expand-icon-hide'} />
               <img alt="expand code" src={require("@/assets/code.svg")} className={codeShow ? 'code-expand-icon-hide' : 'code-expand-icon-show'} />
-            </span>
+              显示代码
+            </div>
           </div>
           {
-            codeShow && <div style={{ backgroundColor: 'black' }} className="EditorWrapper">
+            codeShow && <div style={{ backgroundColor: 'rgb(50, 42, 56)' }} className="EditorWrapper">
               <LiveEditor />
             </div>
           }
-          <div style={{ backgroundColor: 'red' }}>
+          <div className="code-error">
             <LiveError />
           </div>
         </LiveProvider>
       </div>
     )
-  }
-
-  if (render) {
+  } else {
     return (
       <div style={{ marginTop: '10px' }}>
         <LiveProvider code={code} scope={{ React, ...scope }}>
@@ -54,23 +66,6 @@ export default function CodeBlock({
       </div>
     )
   }
-
-  return (
-    <div style={{ marginTop: '10px' }}>
-      <Highlight {...defaultProps} code={code.trim()} language={language}>
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre className={className} style={{ ...style, padding: '20px' }}>
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
-    </div>
-  )
 }
+
 CodeBlock.displayName = 'CodeBlock'
