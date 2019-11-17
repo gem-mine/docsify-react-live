@@ -1,4 +1,4 @@
-import React, { useState, watch } from 'react'
+import React, { useState, useEffect } from 'react'
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 
 import theme from './palenight'
@@ -15,14 +15,16 @@ export default function CodeBlock({
   scope
 }) {
   const [guid] = useState(generateGuid())
-  if (style) {
-    createStyle(style, guid)
-    watch(() => {
-      return () => {
+  useEffect(() => {
+    if (style) {
+      createStyle(style, guid)
+    }
+    return () => {
+      if (style) {
         removeStyle(guid)
       }
-    })
-  }
+    }
+  })
   const [codeShow, setCodeShow] = useState(true)
 
   if (live) {

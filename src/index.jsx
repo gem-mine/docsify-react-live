@@ -18,19 +18,13 @@ const code = `
     }
   </style>
   <script>
-    class Application extends React.Component {
-      render() {
-        return (
-          <div>
-            <div className='wrapper22' ref={el => this.el = el}>
-              <div>
-              <button className='test' onClick={e => {console.log(e)}}>test</button>
-              </div>
-            </div>
-          </div>
-        )
-      }
+  const { Button } = soui
+
+  export default class App extends React.Component {
+    render () {
+      return <Button type="primary" onClick={() => alert('好的')}>确认</Button>
     }
+  }
   </script>
 `
 
@@ -42,3 +36,5 @@ ReactDOM.render(
 )
 
 module.hot && module.hot.accept()
+
+window.testDemo = 'a'
