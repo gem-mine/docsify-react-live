@@ -13,16 +13,15 @@ export default class LiveProvider extends Component {
   };
 
   static propTypes = {
-    children: PropTypes.children,
+    children: PropTypes.array,
     code: PropTypes.string,
     disabled: PropTypes.bool,
     language: PropTypes.string,
     noInline: PropTypes.bool,
     scope: PropTypes.object,
     theme: PropTypes.object,
-    transformCode: PropTypes.node
+    transformCode: PropTypes.func
   };
-
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillMount() {
     const { code, scope, transformCode, noInline } = this.props
