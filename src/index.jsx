@@ -1,34 +1,38 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { generateComponent } from './components'
+import codeBlockWrapper from './hoc/codeBlockWrapper'
 import './assets/dev.less'
 
-const cssResources = '@import url("//unpkg.com/element-ui/lib/theme-default/index.css");'
-const bootCode = ''
-
 const code = `
-  <desc>hello word</desc>
-  <script>
-    class Application extends React.Component {
-      render() {
-        return (
-          <div>
-            <div className='wrapper22' ref={el => this.el = el}>
-              <div>
-              <button className='test' onClick={e => {console.log(e)}}>test</button>
-              </div>
-            </div>
-          </div>
-        )
-      }
-    }
-  </script>
+<className>demo-class</className>
+<title>测试组件标题</title>
+<desc>
+测试组件描述
+- a
+- b
+- c
+</desc>
+<style>
+  body {
+    height: 30px;
+  }
+</style>
+<script>
+const { Button } = soui
+
+export default class App extends React.Component {
+  render () {
+    return <Button type="primary" onClick={() => alert('好的')}>确认</Button>
+  }
+}
+</script>
 `
 
-const Component = generateComponent(code, 'jsx', '', cssResources, bootCode)
-
+const CodeBlockWrapper = codeBlockWrapper(code, 'true')
 
 ReactDOM.render(
-  <Component/>,
+  <CodeBlockWrapper/>,
   document.getElementById('apphook')
 )
+
+module.hot && module.hot.accept()
