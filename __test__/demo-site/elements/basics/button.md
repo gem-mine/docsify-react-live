@@ -1,7 +1,7 @@
 # 按钮 Button
 
 ## 如何使用
-```jsx
+```js
 import { Button } from '@sodalife/soui-react'
 
 class App extends React.Component {
