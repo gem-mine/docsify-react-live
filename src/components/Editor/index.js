@@ -79,7 +79,7 @@ class CodeEditor extends Component {
         onValueChange={this.updateContent}
         style={{
           whiteSpace: 'pre',
-          fontFamily: 'monospace',
+          fontFamily: 'Roboto Mono,Monaco,courier,monospace',
           ...baseTheme,
           ...style
         }}

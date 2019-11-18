@@ -14,7 +14,8 @@ const theme /*: PrismTheme */ = {
         "comment"
       ],
       style: {
-        color: "rgb(105, 112, 152)"
+        color: "rgb(105, 112, 152)",
+        fontStyle: "italic"
       }
     },
     {
@@ -99,6 +100,8 @@ const theme /*: PrismTheme */ = {
         "keyword"
       ],
       style: {
+        fontStyle: "italic",
+        color: "#c792ea"
       }
     },
     {
@@ -106,7 +109,8 @@ const theme /*: PrismTheme */ = {
         "doctype"
       ],
       style: {
-        color: "rgb(199, 146, 234)"
+        color: "rgb(199, 146, 234)",
+        fontStyle: "italic"
       }
     },
     {

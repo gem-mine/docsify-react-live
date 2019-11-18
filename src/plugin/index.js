@@ -1,6 +1,5 @@
 import codeBlockWrapper from '../hoc/codeBlockWrapper'
 import ReactDOM from 'react-dom'
-import Prism from 'prismjs'
 
 export const create = function(scope, theme) {
   return function(hook, vm) {
@@ -60,9 +59,7 @@ export const create = function(scope, theme) {
             renderComponent(Component, id)
             return '<div id="' + id + '" class="demo-box demo-box-react"/></div/>'
           } else {
-            lang = lang || ''
-            const hl = Prism.highlight(code, Prism.languages[lang] || Prism.languages.markup)
-            return '<pre v-pre data-lang="' + lang + '"><code class="lang-' + lang + '">' + hl + '</code></pre>'
+            return this.origin.code.apply(this, arguments)
           }
         }
       }
