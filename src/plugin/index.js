@@ -1,9 +1,8 @@
-/* eslint-disable */
-// TODO
-import { generateComponent } from '../components/'
+import codeBlockWrapper from '../hoc/codeBlockWrapper'
 import ReactDOM from 'react-dom'
+import Prism from 'prismjs'
 
-export const create = function(jsResources, cssResources, bootCode) {
+export const create = function(scope, theme) {
   return function(hook, vm) {
     let id = 0
 
@@ -53,9 +52,11 @@ export const create = function(jsResources, cssResources, bootCode) {
     window.$docsify.markdown = {
       renderer: {
         code: function(code, lang) {
-          if (/^\/\*\s*react\s*\*\//.test(code)) {
+          if (/^\/\*\s*react\s(.+)*\*\//.test(code)) {
             id++
-            const Component = generateComponent(code, lang, jsResources, cssResources, bootCode)
+            const params = code.match(/^\/\*\s*react\s(.+)?\s\*\//)
+            const live = params.split(' ').indexOf('live') > -1
+            const Component = codeBlockWrapper(code, live, scope, theme)
             renderComponent(Component, id)
             return '<div id="' + id + '" class="demo-box demo-box-react"/></div/>'
           } else {
@@ -69,7 +70,7 @@ export const create = function(jsResources, cssResources, bootCode) {
 
     hook.mounted(function() {
       // Called after initial completion. Only trigger once, no arguments.
-      vm.router.onchange(_ => {
+      vm.router.onchange(() => {
         components.renderFromCache()
       })
     })
