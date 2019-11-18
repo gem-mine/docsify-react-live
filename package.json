@@ -1,6 +1,6 @@
 {
   "name": "@gem-mine/docsify-react-live",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "build": "gms build --report",
     "build:modern": "gms build --modern",
