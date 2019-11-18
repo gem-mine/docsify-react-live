@@ -8,10 +8,9 @@ export const generateElement = ({ code = '', scope = {} }, errorCallback) => {
 
   // NOTE: Support import
   const scripts = codeTrimmed.split('export default')
-  const codeForTransform = `(function() {${scripts[0]} ; return (${scripts[1]})})()`
-
+  const codeForTransform = `(function __innerReactLiveExport() {${scripts[0]} ; return (${scripts[1]})})()`
   // NOTE: Workaround for classes and arrow functions.
-  const transformed = transform(`return (${codeForTransform})`).trim()
+  const transformed = transform(codeForTransform).trim()
   return errorBoundary(evalCode(transformed, scope), errorCallback)
 }
 

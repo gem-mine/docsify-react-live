@@ -2,7 +2,7 @@
   "name": "docsify-react-live",
   "version": "1.0.0",
   "scripts": {
-    "build": "gms build",
+    "build": "gms build --report",
     "build:modern": "gms build --modern",
     "cache:clean": "rimraf node_modules/.cache",
     "lint": "eslint --ext .js,.jsx -f node_modules/eslint-friendly-formatter ./src || exit 0",
