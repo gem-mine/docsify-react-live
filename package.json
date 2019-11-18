@@ -15,21 +15,6 @@
     "dist/docsify-react-live.min.js",
     "dist/docsify-react-live.min.js.map"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{css,less,sass,scss}": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ]
-  },
   "dependencies": {
     "create-react-context": "^0.3.0",
     "marked": "^0.7.0",
