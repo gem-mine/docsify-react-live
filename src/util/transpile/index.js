@@ -5,7 +5,6 @@ import evalCode from './evalCode'
 export const generateElement = ({ code = '', scope = {} }, errorCallback) => {
   // NOTE: Remove trailing semicolon to get an actual expression.
   const codeTrimmed = code.trim().replace(/;$/, '')
-
   // NOTE: Support import
   const scripts = codeTrimmed.split('export default')
   const codeForTransform = `(function __innerReactLiveExport() {${scripts[0]} ; return (${scripts[1]})})()`
