@@ -20,7 +20,7 @@ const code = `
 <script>
 const { Button } = soui
 
-export default class App extends React.Component {
+return class App extends React.Component {
   render () {
     return <Button type="primary" onClick={() => alert('好的')}>确认</Button>
   }
@@ -34,5 +34,3 @@ ReactDOM.render(
   <CodeBlockWrapper/>,
   document.getElementById('apphook')
 )
-
-module.hot && module.hot.accept()
