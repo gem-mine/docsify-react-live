@@ -52,9 +52,9 @@ export const create = function(scope, theme) {
     window.$docsify.markdown = {
       renderer: {
         code: function(code, lang) {
-          if (/^\/\*\s*react\s(.+)*\*\//.test(code)) {
+          if (/^\/\*\s*react(.+)*\s*\*\//.test(code)) {
             id++
-            const params = code.match(/^\/\*\s*react\s(.+)?\s\*\//)
+            const params = code.match(/^\/\*\s*react(.+)*\s*\*\//)[1]
             const live = params.split(' ').indexOf('live') > -1
             const Component = codeBlockWrapper(code, live, scope, theme)
             renderComponent(Component, id)

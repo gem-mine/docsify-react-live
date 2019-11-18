@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-    <link rel="stylesheet" href="./asserts/vue.css" />
+    <link rel="stylesheet" href="../../public/vue.css" />
   </head>
 
   <body>
@@ -12,11 +12,11 @@
   </body>
 
   <!-- docsify box react -->
-  <script src="./js/react.development.js"></script>
-  <script src="./js/react-dom.development.js"></script>
-  <script src="./js/soui.standalone.js"></script>
-  <script src="./js/babel.min.js"></script>
-  <script src="./dist/docsify-react-live.min.js"></script>
+  <script src="../../public/react.development.js"></script>
+  <script src="../../public/react-dom.development.js"></script>
+  <script src="../../public/soui.standalone.js"></script>
+  <script src="../../public/babel.min.js"></script>
+  <script src="../../dist/docsify-react-live.min.js"></script>
 
   <!-- config -->
   <script>
@@ -33,14 +33,7 @@
       },
       plugins: [
         (function () {
-          var jsResources = [
-            '//cdn.bootcss.com/react/15.6.1/react.js',
-            '//cdn.bootcss.com/react/15.6.1/react-dom.js',
-            '//unpkg.com/@sodalife/soui-react',
-          ].map(function (url) {
-            return '<script src="' + url + '"><' + '/script>'
-          }).join('\n')
-          return DemoBoxReact.create(jsResources)
+          return ReactLiveBox.create()
         })()
       ],
     }
