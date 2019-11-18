@@ -55,7 +55,7 @@ export default function CodeBlock({
           }
         </div>
         {
-          codeShow && <div style={{ backgroundColor: 'rgb(50, 42, 56)' }} className="EditorWrapper">
+          codeShow && <div className="editor-wrapper">
             <LiveEditor />
           </div>
         }
