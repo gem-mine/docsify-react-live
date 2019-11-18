@@ -45,7 +45,7 @@ export default function CodeBlock({
         </div>
         <div className="code-box-meta markdown">
           { title && <div className="code-box-title"><a>{title}</a></div>}
-          <div dangerouslySetInnerHTML={ {__html: desc} } />
+          <div dangerouslySetInnerHTML={ {__html: desc || '点击右侧按钮可以实时编辑代码'} } />
           { live &&
               <div className="code-expand-icon" onClick={() => {setCodeShow(!codeShow)}}>
                 <img alt="expand code" src={require("@/assets/code-open.svg")} className={codeShow ? 'code-expand-icon-show' : 'code-expand-icon-hide'} />

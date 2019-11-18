@@ -6,12 +6,6 @@ import './assets/dev.less'
 const code = `
 <className>demo-class</className>
 <title>测试组件标题</title>
-<desc>
-测试组件描述
-- a
-- b
-- c
-</desc>
 <style>
   body {
     height: 30px;
@@ -20,7 +14,7 @@ const code = `
 <script>
 const { Button } = soui
 
-return class App extends React.Component {
+export default class App extends React.Component {
   render () {
     return <Button type="primary" onClick={() => alert('好的')}>确认</Button>
   }

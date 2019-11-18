@@ -7,21 +7,22 @@ import '../assets/demoBlock.less'
 export default function codeBlockWrapper(code, live = true, scope, theme) {
   const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className'])
   const desc = marked(codeInfo.desc)
-  return class CodeBlockWrapper extends React.Component {
-    render() {
-      return (
-        <CodeBlock
-          code = { codeInfo.script }
-          style = { codeInfo.style }
-          className = { codeInfo.className }
-          live = { live }
-          title = { codeInfo.title }
-          desc = { desc }
-          scope = { scope }
-          theme = { theme }
-        >
-        </CodeBlock>
-      )
-    }
+
+  function DemoBlockWrapper() {
+    return (
+      <CodeBlock
+        code = { codeInfo.script }
+        style = { codeInfo.style }
+        className = { codeInfo.className }
+        live = { live }
+        title = { codeInfo.title }
+        desc = { desc }
+        scope = { scope }
+        theme = { theme }
+      >
+      </CodeBlock>
+    )
   }
+
+  return DemoBlockWrapper
 }
