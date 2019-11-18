@@ -15,6 +15,7 @@
     "dist/docsify-react-live.min.js",
     "dist/docsify-react-live.min.js.map"
   ],
+  "main": "dist/docsify-react-live.min.js",
   "dependencies": {
     "create-react-context": "^0.3.0",
     "marked": "^0.7.0",
