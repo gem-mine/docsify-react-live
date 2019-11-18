@@ -8,7 +8,7 @@ import theme from '../../constants/palenight'
 import { createStyle, removeStyle }from '../../util/style'
 import generateGuid from '../../util/guid'
 
-export default function CodeBlock({ 
+export default function CodeBlock({
   code,
   style,
   className = '',
