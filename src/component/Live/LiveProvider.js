@@ -62,8 +62,9 @@ export default class LiveProvider extends Component {
       scope
     }
 
-    const errorCallback = err =>
+    const errorCallback = (err) => {
       this.setState({ element: undefined, error: err.toString() })
+    }
     const renderElement = element => this.setState({ ...state, element })
 
     // State reset object
