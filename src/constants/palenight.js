@@ -101,7 +101,7 @@ const theme /*: PrismTheme */ = {
       ],
       style: {
         fontStyle: "italic",
-        color: "#c792ea"
+        color: "#ef3b7d"
       }
     },
     {
