@@ -21,9 +21,16 @@ ReactDOM.render(<Button>Hello Soda</Button>, document.getElementsByTagName('body
 /*react*/
 <script>
 const { Button, Icon, alert } = soui
+
 export default class Application extends React.Component {
   render() {
-    return <Button type="ghost" onClick={() => alert({ message: 'Hello world.' })}><Icon type="heart-colored" /> Biu !</Button>
+    return <Button
+      type="ghost"
+      onClick={() => alert({ message: 'Hello world.' })}
+    >
+      <Icon type="heart-colored" />
+        Biu !
+    </Button>
   }
 }
 </script>
