@@ -45,19 +45,25 @@ export default function CodeBlock({
         </div>
         <div className="code-box-meta markdown">
           { title && <div className="code-box-title"><a>{title}</a></div>}
-          <div dangerouslySetInnerHTML={ {__html: desc || '点击右侧按钮可以实时编辑代码'} } />
+          <div dangerouslySetInnerHTML={ {__html: desc || '下面是代码哦，点击右上角可以复制代码' } } />
           { live &&
               <div className="code-expand-icon" onClick={() => {setCodeShow(!codeShow)}}>
-                <img alt="expand code" src={require("@/assets/code-open.svg")} className={codeShow ? 'code-expand-icon-show' : 'code-expand-icon-hide'} />
-                <img alt="expand code" src={require("@/assets/code.svg")} className={codeShow ? 'code-expand-icon-hide' : 'code-expand-icon-show'} />
-              显示代码
+                <img alt="expand code"
+                  src={require("@/assets/code-open.svg")}
+                  className={codeShow ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+                />
+                <img alt="expand code"
+                  src={require("@/assets/code.svg")}
+                  className={codeShow ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+                />
               </div>
           }
         </div>
         {
-          codeShow && <div className="editor-wrapper">
+          codeShow && <pre className="editor-wrapper" data-lang="jsx">
+            <code className="code-for-copy">{code}</code>
             <LiveEditor />
-          </div>
+          </pre>
         }
         <div className="code-error">
           <LiveError />
