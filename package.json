@@ -2,7 +2,7 @@
   "name": "@gem-mine/docsify-react-live",
   "version": "1.0.0",
   "scripts": {
-    "build": "gms build --report",
+    "build": "node script/generatecss.js && gms build --report",
     "build:modern": "gms build --modern",
     "cache:clean": "rimraf node_modules/.cache",
     "lint": "eslint --ext .js,.jsx -f node_modules/eslint-friendly-formatter ./src || exit 0",
@@ -30,7 +30,7 @@
     "@gem-mine/babel-preset-app": "^2.0.0-alpha.5",
     "@gem-mine/cli-plugin-eslint": "^2.0.0-alpha.7",
     "@gem-mine/eslint-config-recommend": "^2.0.0-alpha.5",
-    "@gem-mine/script": "^2.0.0-alpha.7",
+    "@gem-mine/script": "^2.0.0-alpha.9",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "husky": "^2.7.0",
