@@ -4,6 +4,7 @@ module.exports = {
     requireModuleExtension: true,
     extract: false
   },
+  inlineSVG: true,
   productionSourceMap: true,
   chainWebpack(webpackChainConfig) {
     if (process.env.NODE_ENV === 'production') {
