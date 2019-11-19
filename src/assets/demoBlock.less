@@ -12,7 +12,7 @@
 
   .code-box-meta.markdown {
     position: relative;
-    padding: 10px;
+    padding: 16px 10px 10px;
     width: 100%;
     font-size: 12px;
   }
@@ -36,9 +36,9 @@
   .code-expand-icon {
     position: absolute;
     right: 10px;
-    bottom: 5px;
+    bottom: 6px;
     cursor: pointer;
-    width: 80px;
+    width: 25px;
     height: 20px;
     text-align: center;
     font-size: 12px;
@@ -83,5 +83,16 @@
   .editor-wrapper {
     font-size: 12.8px;
     line-height: 24px;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    > .code-for-copy {
+      position: absolute;
+      z-index: -999;
+      overflow: hidden;
+      height: 10px;
+      width: 10px;
+    }
   }
 }
