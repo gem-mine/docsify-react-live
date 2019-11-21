@@ -1,6 +1,6 @@
 import React from 'react'
 import striptags from '../util/stripTags'
-import CodeBlock from '../components/CodeBlock'
+import CodeBlock from '../component/CodeBlock'
 import marked from 'marked'
 import '../assets/demoBlock.less'
 
