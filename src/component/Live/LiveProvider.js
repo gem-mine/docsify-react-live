@@ -47,6 +47,9 @@ export default class LiveProvider extends Component {
   }
 
   onChange = code => {
+    if(typeof code !== 'string') {
+      return
+    }
     const { scope, transformCode, noInline } = this.props
     this.transpile({ code, scope, transformCode, noInline })
   };
