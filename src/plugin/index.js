@@ -1,6 +1,8 @@
-import codeBlockWrapper from '../hoc/codeBlockWrapper'
 import ReactDOM from 'react-dom'
+import codeBlockWrapper from '../hoc/codeBlockWrapper'
 
+
+// eslint-disable-next-line import/prefer-default-export
 export const create = function(scope, theme) {
   return function() {
     const idPrefix = 'demo-box-react-'

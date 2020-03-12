@@ -18,7 +18,7 @@ module.exports = {
         .library('ReactLiveBox')
         .libraryTarget('umd')
         .filename('docsify-react-live.min.js')
-      
+
 
       webpackChainConfig.externals({
         react: 'React',

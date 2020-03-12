@@ -27,10 +27,10 @@
     "react-simple-code-editor": "^0.10.0"
   },
   "devDependencies": {
-    "@gem-mine/babel-preset-app": "^2.0.0-alpha.5",
-    "@gem-mine/cli-plugin-eslint": "^2.0.0-alpha.7",
-    "@gem-mine/eslint-config-recommend": "^2.0.0-alpha.5",
-    "@gem-mine/script": "^2.0.0-alpha.10",
+    "@gem-mine/babel-preset-app": "^2.4.1",
+    "@gem-mine/cli-plugin-eslint": "^2.7.3",
+    "@gem-mine/eslint-config-recommend": "^2.4.0",
+    "@gem-mine/script": "^2.7.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "husky": "^2.7.0",

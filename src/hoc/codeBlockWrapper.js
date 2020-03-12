@@ -1,7 +1,7 @@
 import React from 'react'
+import marked from 'marked'
 import striptags from '../util/stripTags'
 import CodeBlock from '../component/CodeBlock'
-import marked from 'marked'
 import '../assets/demoBlock.less'
 
 export default function codeBlockWrapper(code, live = true, scope, theme) {
@@ -11,14 +11,14 @@ export default function codeBlockWrapper(code, live = true, scope, theme) {
   function DemoBlockWrapper() {
     return (
       <CodeBlock
-        code = { codeInfo.script }
-        style = { codeInfo.style }
-        className = { codeInfo.className }
-        live = { live }
-        title = { codeInfo.title }
-        desc = { desc }
-        scope = { scope }
-        theme = { theme }
+        code={codeInfo.script}
+        style={codeInfo.style}
+        className={codeInfo.className}
+        live={live}
+        title={codeInfo.title}
+        desc={desc}
+        scope={scope}
+        theme={theme}
       >
       </CodeBlock>
     )

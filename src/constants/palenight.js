@@ -5,131 +5,131 @@
 
 const theme /*: PrismTheme */ = {
   plain: {
-    color: "#bfc7d5",
-    backgroundColor: "#292d3e"
+    color: '#bfc7d5',
+    backgroundColor: '#292d3e'
   },
   styles: [
     {
       types: [
-        "comment"
+        'comment'
       ],
       style: {
-        color: "rgb(105, 112, 152)",
-        fontStyle: "italic"
+        color: 'rgb(105, 112, 152)',
+        fontStyle: 'italic'
       }
     },
     {
       types: [
-        "string"
+        'string'
       ],
       style: {
-        color: "rgb(195, 232, 141)"
+        color: 'rgb(195, 232, 141)'
       }
     },
     {
       types: [
-        "number"
+        'number'
       ],
       style: {
-        color: "rgb(247, 140, 108)"
+        color: 'rgb(247, 140, 108)'
       }
     },
     {
       types: [
-        "builtin",
-        "char",
-        "constant",
-        "function"
+        'builtin',
+        'char',
+        'constant',
+        'function'
       ],
       style: {
-        color: "rgb(130, 170, 255)"
+        color: 'rgb(130, 170, 255)'
       }
     },
     {
       types: [
-        "punctuation",
-        "selector"
+        'punctuation',
+        'selector'
       ],
       style: {
-        color: "rgb(199, 146, 234)"
+        color: 'rgb(199, 146, 234)'
       }
     },
     {
       types: [
-        "variable"
+        'variable'
       ],
       style: {
-        color: "rgb(191, 199, 213)"
+        color: 'rgb(191, 199, 213)'
       }
     },
     {
       types: [
-        "class-name",
-        "attr-name"
+        'class-name',
+        'attr-name'
       ],
       style: {
-        color: "rgb(255, 203, 107)"
+        color: 'rgb(255, 203, 107)'
       }
     },
     {
       types: [
-        "tag"
+        'tag'
       ],
       style: {
-        color: "rgb(255, 85, 114)"
+        color: 'rgb(255, 85, 114)'
       }
     },
     {
       types: [
-        "operator"
+        'operator'
       ],
       style: {
-        color: "rgb(137, 221, 255)"
+        color: 'rgb(137, 221, 255)'
       }
     },
     {
       types: [
-        "boolean"
+        'boolean'
       ],
       style: {
-        color: "rgb(255, 88, 116)"
+        color: 'rgb(255, 88, 116)'
       }
     },
     {
       types: [
-        "keyword"
+        'keyword'
       ],
       style: {
-        fontStyle: "italic",
-        color: "#ef3b7d"
+        fontStyle: 'italic',
+        color: '#ef3b7d'
       }
     },
     {
       types: [
-        "doctype"
+        'doctype'
       ],
       style: {
-        color: "rgb(199, 146, 234)",
-        fontStyle: "italic"
+        color: 'rgb(199, 146, 234)',
+        fontStyle: 'italic'
       }
     },
     {
       types: [
-        "namespace"
+        'namespace'
       ],
       style: {
-        color: "rgb(178, 204, 214)"
+        color: 'rgb(178, 204, 214)'
       }
     },
     {
       types: [
-        "url"
+        'url'
       ],
       style: {
-        color: "rgb(221, 221, 221)"
+        color: 'rgb(221, 221, 221)'
       }
     }
   ]
 }
-  
+
 module.exports = theme

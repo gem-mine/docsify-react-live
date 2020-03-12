@@ -25,7 +25,7 @@ export default class App extends React.Component {
 const CodeBlockWrapper = codeBlockWrapper(code, true)
 
 ReactDOM.render(
-  <CodeBlockWrapper/>,
+  <CodeBlockWrapper />,
   document.getElementById('apphook')
 )
 
