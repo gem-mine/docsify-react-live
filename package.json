@@ -5,8 +5,8 @@
     "build": "node script/generatecss.js && gms build --report",
     "build:modern": "gms build --modern",
     "cache:clean": "rimraf node_modules/.cache",
-    "lint": "eslint --ext .js,.jsx -f node_modules/eslint-friendly-formatter ./src || exit 0",
-    "lint:fix": "eslint --ext .js,.jsx -f node_modules/eslint-friendly-formatter ./src --fix || exit 0",
+    "lint": "gms lint",
+    "lint:fix": "gms lint --fix",
     "start": "gms dev",
     "test": "jest",
     "publish": "npm publish --access=public"
