@@ -33,15 +33,20 @@ export default function CodeBlock({
   })
   const [codeShow, setCodeShow] = useState(true)
   return pureRender ? (
-    <LiveProvider
-      code={code.trim()}
-      transformCode={code => code}
-      scope={{React, ...scope}}
-    >
-      <div className="code-box-demo">
-        <LivePreview />
-      </div>
-    </LiveProvider>
+    <div className={`code-box pureRender ${className}`}>
+      <LiveProvider
+        code={code.trim()}
+        transformCode={code => code}
+        scope={{React, ...scope}}
+      >
+        <div className="code-box-demo">
+          <LivePreview />
+        </div>
+        <div className="code-error">
+          <LiveError />
+        </div>
+      </LiveProvider>
+    </div>
   ) : (
     <div className={`code-box ${className}`}>
       <LiveProvider
