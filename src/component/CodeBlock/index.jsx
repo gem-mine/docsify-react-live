@@ -38,6 +38,7 @@ export default function CodeBlock({
         code={code.trim()}
         transformCode={code => code}
         scope={{React, ...scope}}
+        disabled={!live}
         theme={theme || palenightTheme}
       >
         <div className="code-box-demo">
@@ -46,18 +47,16 @@ export default function CodeBlock({
         <div className="code-box-meta markdown">
           { title && <div className="code-box-title"><a>{title}</a></div>}
           <div dangerouslySetInnerHTML={{__html: desc || '下面是代码哦，点击右上角可以复制代码' }} />
-          { live && (
-            <div className="code-expand-icon" onClick={() => {setCodeShow(!codeShow)}}>
-              <img alt="expand code"
-                src={require('@/assets/code-open.svg')}
-                className={codeShow ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-              />
-              <img alt="expand code"
-                src={require('@/assets/code.svg')}
-                className={codeShow ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-              />
-            </div>
-          )}
+          <div className="code-expand-icon" onClick={() => {setCodeShow(!codeShow)}}>
+            <img alt="expand code"
+              src={require('@/assets/code-open.svg')}
+              className={codeShow ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+            />
+            <img alt="expand code"
+              src={require('@/assets/code.svg')}
+              className={codeShow ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+            />
+          </div>
         </div>
         {
           codeShow && (
