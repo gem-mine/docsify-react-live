@@ -46,7 +46,8 @@ export default class App extends React.Component {
 </script>
 ```
 
-- live 表示是否要实时编辑
+- /* react live */ 表示是否要实时编辑
+- /* react pureRender */ 表示只渲染
 - className 生成的HTML中额外加入的className
 - style 额外注入全局的样式
 - script 代码内容
