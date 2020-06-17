@@ -13,6 +13,7 @@ export default function CodeBlock({
   style,
   className = '',
   live,
+  pureRender,
   title,
   desc,
   scope,
@@ -31,8 +32,17 @@ export default function CodeBlock({
     }
   })
   const [codeShow, setCodeShow] = useState(true)
-
-  return (
+  return pureRender ? (
+    <LiveProvider
+      code={code.trim()}
+      transformCode={code => code}
+      scope={{React, ...scope}}
+    >
+      <div className="code-box-demo">
+        <LivePreview />
+      </div>
+    </LiveProvider>
+  ) : (
     <div className={`code-box ${className}`}>
       <LiveProvider
         code={code.trim()}

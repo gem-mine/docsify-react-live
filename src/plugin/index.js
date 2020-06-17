@@ -21,7 +21,8 @@ export const create = function(scope, theme) {
             id++
             const params = code.match(/^\/\*\s*react(.+)*\s*\*\//)[1] || ''
             const live = params.split(' ').indexOf('live') > -1
-            const Component = codeBlockWrapper(code, live, scope, theme)
+            const pureRender = params.split(' ').indexOf('pureRender') > -1
+            const Component = codeBlockWrapper(code, scope, theme, live, pureRender)
             const currentId = `${idPrefix}${id}`
             renderComponent(Component, currentId)
             return '<div id="' + currentId + '" class="demo-box demo-box-react"/></div/>'

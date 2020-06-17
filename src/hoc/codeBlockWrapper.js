@@ -4,7 +4,7 @@ import striptags from '../util/stripTags'
 import CodeBlock from '../component/CodeBlock'
 import '../assets/demoBlock.less'
 
-export default function codeBlockWrapper(code, live = true, scope, theme) {
+export default function codeBlockWrapper(code, scope, theme, live = true, pureRender = false) {
   const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className'])
   const desc = marked(codeInfo.desc)
 
@@ -15,6 +15,7 @@ export default function codeBlockWrapper(code, live = true, scope, theme) {
         style={codeInfo.style}
         className={codeInfo.className}
         live={live}
+        pureRender={pureRender}
         title={codeInfo.title}
         desc={desc}
         scope={scope}

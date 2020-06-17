@@ -22,16 +22,23 @@ export default class App extends React.Component {
 </script>
 `
 
-const CodeBlockWrapper = codeBlockWrapper(code, true)
+const CodeBlockWrapper = codeBlockWrapper(code, undefined,undefined, true)
 
 ReactDOM.render(
   <CodeBlockWrapper />,
   document.getElementById('apphook')
 )
 
-const CodeBlockWrapper2 = codeBlockWrapper(code, false)
+const CodeBlockWrapper2 = codeBlockWrapper(code, undefined,undefined, true)
 
 ReactDOM.render(
   <CodeBlockWrapper2 />,
   document.getElementById('apphook2')
+)
+
+const CodeBlockWrapper3 = codeBlockWrapper(code, undefined,undefined, true, true)
+
+ReactDOM.render(
+  <CodeBlockWrapper3 />,
+  document.getElementById('apphook3')
 )
