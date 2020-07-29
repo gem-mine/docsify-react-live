@@ -40,8 +40,9 @@ function transformImport(code) {
   const lines = code.split(/(\n|\r|;)/).filter(t => t !== '')
   return lines.map((lineCode) => {
     return lineCode.trim()
-      .replace(/^import\s(.+)\sfrom\s'(.+)'/, 'const $1 = $2')
-      .replace(/^(const|var)\s(.+)\s*=\s*require\('(.+)'\)/, 'const $2 = $3')
+      .replace(/^import\s(.+)\sfrom\s'(.+)'/, 'const $1 = window[\'$2\']')
+      .replace(/^(const|var)\s(.+)\s*=\s*require\('(.+)'\)/, 'const $2 = window[\'$3\']')
+      .replace(/^\/\/.+$/, '')
   }).filter(t => t !== '')
     .join(';')
 }
