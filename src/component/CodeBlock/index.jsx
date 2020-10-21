@@ -17,7 +17,8 @@ export default function CodeBlock({
   title,
   desc,
   scope,
-  theme
+  theme,
+  lang
 }) {
   const [guid] = useState(generateGuid())
   // 注入页面 style
@@ -54,6 +55,7 @@ export default function CodeBlock({
         scope={{React, ...scope}}
         disabled={!live}
         theme={theme || palenightTheme}
+        language={lang}
       >
         <div className="code-box-demo">
           <LivePreview />

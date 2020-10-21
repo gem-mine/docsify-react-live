@@ -24,9 +24,9 @@ export default class LiveProvider extends Component {
   };
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillMount() {
-    const { code, scope, transformCode, noInline } = this.props
+    const { code, scope, transformCode, noInline, language } = this.props
 
-    this.transpile({ code, scope, transformCode, noInline })
+    this.transpile({ code, scope, transformCode, noInline, language })
   }
 
   componentDidUpdate({
@@ -35,14 +35,14 @@ export default class LiveProvider extends Component {
     noInline: prevNoInline,
     transformCode: prevTransformCode
   }) {
-    const { code, scope, noInline, transformCode } = this.props
+    const { code, scope, noInline, transformCode, language } = this.props
     if (
       code !== prevCode ||
       scope !== prevScope ||
       noInline !== prevNoInline ||
       transformCode !== prevTransformCode
     ) {
-      this.transpile({ code, scope, transformCode, noInline })
+      this.transpile({ code, scope, transformCode, noInline, language })
     }
   }
 
@@ -50,18 +50,19 @@ export default class LiveProvider extends Component {
     if (typeof code !== 'string') {
       return
     }
-    const { scope, transformCode, noInline } = this.props
-    this.transpile({ code, scope, transformCode, noInline })
+    const { scope, transformCode, noInline, language } = this.props
+    this.transpile({ code, scope, transformCode, noInline, language })
   };
 
   onError = error => {
     this.setState({ error: error.toString() })
   };
 
-  transpile = ({ code, scope, transformCode, noInline = false }) => {
+  transpile = ({ code, scope, transformCode, noInline = false, language }) => {
     // Transpilation arguments
     const input = {
       code: transformCode ? transformCode(code) : code,
+      language,
       scope
     }
 

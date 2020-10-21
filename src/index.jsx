@@ -5,7 +5,7 @@ import './assets/dev.less'
 
 const code = `
 <className>demo-class</className>
-<title>测试组件标题</title>
+<title>JS测试</title>
 <style>
   body {
     height: 30px;
@@ -14,9 +14,11 @@ const code = `
 <script>
 const { Button } = soui
 
+const text = '确定'
+
 export default class App extends React.Component {
   render () {
-    return <Button type="primary" onClick={() => alert('好的')}>确认</Button>
+    return <Button type="primary" onClick={() => alert('好的')}>{text}</Button>
   }
 }
 </script>
@@ -29,14 +31,42 @@ ReactDOM.render(
   document.getElementById('apphook')
 )
 
-const CodeBlockWrapper2 = codeBlockWrapper(code, undefined,undefined, true)
+const codeTS = `
+<className>demo-class</className>
+<title>TS测试</title>
+<style>
+  body {
+    height: 30px;
+  }
+</style>
+<script>
+const { Button } = soui
+
+const text: string = '确定TS'
+
+export default class App extends React.Component {
+  render () {
+    return <Button type="primary" onClick={() => alert('好的')}>{text}</Button>
+  }
+}
+</script>
+`
+
+const CodeBlockWrapper2 = codeBlockWrapper(codeTS, undefined,undefined, true, false, 'tsx')
 
 ReactDOM.render(
   <CodeBlockWrapper2 />,
   document.getElementById('apphook2')
 )
 
-const CodeBlockWrapper3 = codeBlockWrapper(code, undefined,undefined, true, true)
+const CodeBlockWrapper3 = function Pure() {
+  return (
+    <div>
+      <div>纯渲染</div>
+      {codeBlockWrapper(code, undefined,undefined, true, true)()}
+    </div>
+  )
+}
 
 ReactDOM.render(
   <CodeBlockWrapper3 />,

@@ -17,12 +17,13 @@ export const create = function(scope, theme) {
     window.$docsify.markdown = {
       renderer: {
         code: function(code, lang) {
-          if (lang === 'jsx' && /^\/\*\s*react(.+)*\s*\*\//.test(code)) {
+          if ((lang === 'jsx' || lang === 'tsx')
+            && /^\/\*\s*react(.+)*\s*\*\//.test(code)) {
             id++
             const params = code.match(/^\/\*\s*react(.+)*\s*\*\//)[1] || ''
             const live = params.split(' ').indexOf('live') > -1
             const pureRender = params.split(' ').indexOf('pureRender') > -1
-            const Component = codeBlockWrapper(code, scope, theme, live, pureRender)
+            const Component = codeBlockWrapper(code, scope, theme, live, pureRender, lang)
             const currentId = `${idPrefix}${id}`
             renderComponent(Component, currentId)
             return '<div id="' + currentId + '" class="demo-box demo-box-react"/></div/>'
