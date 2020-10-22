@@ -12,7 +12,8 @@ export default function codeBlockWrapper(
   pureRender = false,
   lang
 ) {
-  const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className'])
+  const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className', 'css'])
+
   const desc = marked(codeInfo.desc)
 
   function DemoBlockWrapper() {
@@ -28,6 +29,7 @@ export default function codeBlockWrapper(
         scope={scope}
         theme={theme}
         lang={lang}
+        css={codeInfo.css}
       >
       </CodeBlock>
     )

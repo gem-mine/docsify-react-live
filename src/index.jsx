@@ -22,6 +22,11 @@ export default class App extends React.Component {
   }
 }
 </script>
+<css>
+.body {
+  height: 100px;
+}
+</css>
 `
 
 const CodeBlockWrapper = codeBlockWrapper(code, undefined,undefined, true)

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
+
 import LiveProvider from '../Live/LiveProvider'
 import LiveEditor from '../Live/LiveEditor'
 import LiveError from '../Live/LiveError'
 import LivePreview from '../Live/LivePreview'
+
+import HighLightCode from './HighLightCode'
 
 import palenightTheme from '../../constants/palenight'
 import { createStyle, removeStyle } from '../../util/style'
@@ -18,7 +21,8 @@ export default function CodeBlock({
   desc,
   scope,
   theme,
-  lang
+  lang,
+  css
 }) {
   const [guid] = useState(generateGuid())
   // 注入页面 style
@@ -32,6 +36,7 @@ export default function CodeBlock({
       }
     }
   })
+
   return pureRender ? (
     <div className={`code-box pureRender ${className}`}>
       <LiveProvider
@@ -68,6 +73,18 @@ export default function CodeBlock({
           <code className="code-for-copy">{code}</code>
           <LiveEditor />
         </pre>
+        {
+          css && (
+            <pre className="editor-wrapper css" data-lang="css">
+              <code>
+                <HighLightCode
+                  code={css}
+                  theme={theme}
+                />
+              </code>
+            </pre>
+          )
+        }
         <div className="code-error">
           <LiveError />
         </div>

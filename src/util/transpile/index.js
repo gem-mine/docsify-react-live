@@ -42,7 +42,6 @@ export const renderElementAsync = (
 
 function transformImport(code) {
   const lines = code.split(/(\n|\r)/).filter(t => t !== '')
-  debugger
   return lines.map((lineCode) => {
     return lineCode.trim()
       .replace(/^import\s(.+)\sfrom\s'(.+)'/, 'const $1 = window[\'$2\']')
