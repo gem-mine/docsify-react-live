@@ -44,6 +44,11 @@ export default class App extends React.Component {
   }
 }
 </script>
+<css>
+.body {
+  height: 100px;
+}
+</css>
 ```
 
 - /* react live */ 表示是否要实时编辑
@@ -52,3 +57,4 @@ export default class App extends React.Component {
 - style 额外注入全局的样式
 - script 代码内容
 - desc 描述，可用`MarkDown`语法
+- css 用于script下方额外显示的CSS内容
