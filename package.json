@@ -1,6 +1,6 @@
 {
   "name": "@gem-mine/docsify-react-live",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "scripts": {
     "build": "node script/generatecss.js && gms build --report",
     "build:modern": "gms build --modern",
