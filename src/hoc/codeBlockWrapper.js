@@ -8,9 +8,11 @@ export default function codeBlockWrapper(
   code,
   scope,
   theme,
-  live = true,
+  // 注释中提取的值，必须是false
+  live = false,
   pureRender = false,
-  lang
+  lang,
+  codeShow = false,
 ) {
   const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className', 'css'])
 
@@ -30,6 +32,7 @@ export default function codeBlockWrapper(
         theme={theme}
         lang={lang}
         css={codeInfo.css}
+        codeShow={codeShow}
       >
       </CodeBlock>
     )

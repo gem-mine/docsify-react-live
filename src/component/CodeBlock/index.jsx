@@ -22,7 +22,8 @@ export default function CodeBlock({
   scope,
   theme,
   lang,
-  css
+  css,
+  codeShow: propCodeShow = false
 }) {
   const [guid] = useState(generateGuid())
   // 注入页面 style
@@ -36,7 +37,7 @@ export default function CodeBlock({
       }
     }
   })
-  const [codeShow, setCodeShow] = useState(true)
+  const [codeShow, setCodeShow] = useState(propCodeShow)
   return pureRender ? (
     <div className={`code-box pureRender ${className}`}>
       <LiveProvider

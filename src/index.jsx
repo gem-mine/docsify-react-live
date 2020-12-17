@@ -57,7 +57,7 @@ export default class App extends React.Component {
 </script>
 `
 
-const CodeBlockWrapper2 = codeBlockWrapper(codeTS, undefined,undefined, true, false, 'tsx')
+const CodeBlockWrapper2 = codeBlockWrapper(codeTS, undefined,undefined, true, false, 'tsx', true)
 
 ReactDOM.render(
   <CodeBlockWrapper2 />,
