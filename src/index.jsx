@@ -6,6 +6,26 @@ import './assets/dev.less'
 const code = `
 <className>demo-class</className>
 <title>JS测试</title>
+<desc>asda
+asd
+asd
+1. 123123
+2. 123123
+
+> # Foo
+> bar
+> baz
+
+\`\`\` diff
+- <Form.Item label="Field" name="field"></desc>
+-   <Input />
+- </Form.Item>
++ <Form.Item label="Field">
++   <Form.Item name="field" noStyle><Input /></Form.Item> // 直接包裹才会绑定表单
++   <span>description</span>
++ </Form.Item>
+\`\`\`
+</desc>
 <style>
   body {
     height: 30px;

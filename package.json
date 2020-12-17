@@ -32,6 +32,7 @@
     "@gem-mine/cli-plugin-eslint": "^2.7.3",
     "@gem-mine/eslint-config-recommend": "^2.4.0",
     "@gem-mine/script": "^2.7.1",
+    "babel-plugin-prismjs": "^2.0.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "husky": "^2.7.0",

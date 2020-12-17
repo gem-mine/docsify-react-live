@@ -1,5 +1,7 @@
 import React from 'react'
 import marked from 'marked'
+import prism from 'prismjs'
+
 import striptags from '../util/stripTags'
 import CodeBlock from '../component/CodeBlock'
 import '../assets/demoBlock.less'
@@ -16,7 +18,16 @@ export default function codeBlockWrapper(
 ) {
   const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className', 'css'])
 
-  const desc = marked(codeInfo.desc)
+  const desc = marked(codeInfo.desc, {
+    gfm: true,
+    highlight: function(code, lang) {
+      if (prism.languages[lang]) {
+        return prism.highlight(code, prism.languages[lang], lang)
+      } else {
+        return code
+      }
+    }
+  })
 
   function DemoBlockWrapper() {
     return (
