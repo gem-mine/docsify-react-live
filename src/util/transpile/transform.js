@@ -17,7 +17,16 @@ function generateUID(length) {
 
 function transform(code, language) {
   const transformed = Babel.transform(code, {
-    presets: ['env', 'react', 'typescript'],
+    presets: [
+      ['env', {
+        targets: {
+          'ie': '11',
+          'chrome': '75'
+        }
+      }],
+      'react',
+      'typescript'
+    ],
     filename: `${generateUID(8)}.${language}`,
     plugins: [
       'proposal-class-properties',
