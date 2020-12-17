@@ -11,7 +11,7 @@ export const generateElement = ({
   const codeTrimmed = code.trim().replace(/;$/, '')
   // NOTE: Support import
   const scripts = codeTrimmed.split('export default')
-  const codeForTransform = `(function __innerReactLiveExport() {${transformImport(scripts[0])} ; return (${scripts[1]})})()`
+  const codeForTransform = `(function __innerReactLiveExport() {${scripts[0]} ; return (${scripts[1]})})()`
   // NOTE: Workaround for classes and arrow functions.
   const transformed = transform(codeForTransform, language).trim()
   return errorBoundary(evalCode(transformed, scope), errorCallback)
@@ -38,15 +38,4 @@ export const renderElementAsync = (
   }
 
   evalCode(transform(code), { ...scope, render })
-}
-
-function transformImport(code) {
-  const lines = code.split(/(\n|\r)/).filter(t => t !== '')
-  return lines.map((lineCode) => {
-    return lineCode.trim()
-      .replace(/^import\s(.+)\sfrom\s'(.+)'/, 'const $1 = window[\'$2\']')
-      .replace(/^(const|var)\s(.+)\s*=\s*require\('(.+)'\)/, 'const $2 = window[\'$3\']')
-      .replace(/^\/\/.+$/, '')
-  }).filter(t => t !== '')
-    .join('\n')
 }
