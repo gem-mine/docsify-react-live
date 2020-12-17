@@ -12,7 +12,7 @@ const code = `
   }
 </style>
 <script>
-const { Button } = soui
+const { Button } = require('soui')
 
 const text = '确定'
 
@@ -45,7 +45,7 @@ const codeTS = `
   }
 </style>
 <script>
-const { Button } = soui
+import { Button } from 'soui'
 
 const text: string = '确定TS'
 

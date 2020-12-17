@@ -9,12 +9,18 @@ export const generateElement = ({
 }, errorCallback) => {
   // NOTE: Remove trailing semicolon to get an actual expression.
   const codeTrimmed = code.trim().replace(/;$/, '')
-  // NOTE: Support import
-  const scripts = codeTrimmed.split('export default')
-  const codeForTransform = `(function __innerReactLiveExport() {${scripts[0]} ; return (${scripts[1]})})()`
   // NOTE: Workaround for classes and arrow functions.
-  const transformed = transform(codeForTransform, language).trim()
-  return errorBoundary(evalCode(transformed, scope), errorCallback)
+  const transformed = transform(codeTrimmed, language).trim()
+  const codeWrapped = `(function __innerReactLiveExport() {
+    var exports = {};
+    function require(name) {
+      return window[name]
+    };
+    ${transformed}
+    return exports.default
+  })()`
+
+  return errorBoundary(evalCode(codeWrapped, scope), errorCallback)
 }
 
 export const renderElementAsync = (
