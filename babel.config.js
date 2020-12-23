@@ -4,7 +4,7 @@ module.exports = {
   ],
   plugins: [
     ['prismjs', {
-      'languages': [
+      languages: [
         'javascript',
         'typescript',
         'jsx',
