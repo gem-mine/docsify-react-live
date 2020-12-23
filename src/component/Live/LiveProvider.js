@@ -22,11 +22,16 @@ export default class LiveProvider extends Component {
     theme: PropTypes.object,
     transformCode: PropTypes.func
   };
+
   // eslint-disable-next-line camelcase
   UNSAFE_componentWillMount() {
-    const { code, scope, transformCode, noInline, language } = this.props
+    const {
+      code, scope, transformCode, noInline, language
+    } = this.props
 
-    this.transpile({ code, scope, transformCode, noInline, language })
+    this.transpile({
+      code, scope, transformCode, noInline, language
+    })
   }
 
   componentDidUpdate({
@@ -35,30 +40,40 @@ export default class LiveProvider extends Component {
     noInline: prevNoInline,
     transformCode: prevTransformCode
   }) {
-    const { code, scope, noInline, transformCode, language } = this.props
+    const {
+      code, scope, noInline, transformCode, language
+    } = this.props
     if (
-      code !== prevCode ||
-      scope !== prevScope ||
-      noInline !== prevNoInline ||
-      transformCode !== prevTransformCode
+      code !== prevCode
+      || scope !== prevScope
+      || noInline !== prevNoInline
+      || transformCode !== prevTransformCode
     ) {
-      this.transpile({ code, scope, transformCode, noInline, language })
+      this.transpile({
+        code, scope, transformCode, noInline, language
+      })
     }
   }
 
-  onChange = code => {
+  onChange = (code) => {
     if (typeof code !== 'string') {
       return
     }
-    const { scope, transformCode, noInline, language } = this.props
-    this.transpile({ code, scope, transformCode, noInline, language })
+    const {
+      scope, transformCode, noInline, language
+    } = this.props
+    this.transpile({
+      code, scope, transformCode, noInline, language
+    })
   };
 
-  onError = error => {
+  onError = (error) => {
     this.setState({ error: error.toString() })
   };
 
-  transpile = ({ code, scope, transformCode, noInline = false, language }) => {
+  transpile = ({
+    code, scope, transformCode, noInline = false, language
+  }) => {
     // Transpilation arguments
     const input = {
       code: transformCode ? transformCode(code) : code,
@@ -69,10 +84,10 @@ export default class LiveProvider extends Component {
     const errorCallback = (err) => {
       this.setState({ element: undefined, error: err.toString() })
     }
-    const renderElement = element => this.setState({ ...state, element })
 
     // State reset object
     const state = { unsafeWrapperError: undefined, error: undefined }
+    const renderElement = (element) => this.setState({ ...state, element })
 
     try {
       if (noInline) {
@@ -87,7 +102,9 @@ export default class LiveProvider extends Component {
   };
 
   render() {
-    const { children, code, language, theme, disabled } = this.props
+    const {
+      children, code, language, theme, disabled
+    } = this.props
 
     return (
       <LiveContext.Provider

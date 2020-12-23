@@ -1,4 +1,19 @@
 {
   "project_id": "12363620-078c-11ea-a929-f55632cfee0c_1573810877058",
-  "version": "2.6.3"
+  "version": "2.13.3",
+  "id": 822,
+  "name": "@gem-mine/docsify-react-live",
+  "user": "yaoj",
+  "email": "624975@nd.com",
+  "path": "C:\\gitlab\\nd\\docsify-react-live",
+  "template_id": "base",
+  "token": null,
+  "choice": "{\"templateId\":\"base\",\"packageManager\":\"npm\",\"registry\":\"https://registry.npmjs.org/\",\"features\":[\"linter\"],\"ui\":\"\"}",
+  "env": "{\"template_version\":\"2.0.0-alpha.5\",\"npm_version\":\"6.12.0\",\"node_version\":\"v12.13.0\"}",
+  "subTemplateList": null,
+  "_delete_flag": 0,
+  "_create_time": 1573810877225,
+  "_update_time": null,
+  "_delete_time": null,
+  "template": null
 }

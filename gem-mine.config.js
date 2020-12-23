@@ -11,14 +11,13 @@ module.exports = {
       webpackChainConfig
         .entry('app')
         .clear()
-        .add('./src/plugin/index')
+        .add('./src/plugin/index.js')
         .end()
 
       webpackChainConfig.output
         .library('ReactLiveBox')
         .libraryTarget('umd')
         .filename('docsify-react-live.min.js')
-
 
       webpackChainConfig.externals({
         react: 'React',
@@ -30,6 +29,12 @@ module.exports = {
         .delete('ScriptExtHtmlWebpackPlugin')
 
       webpackChainConfig.optimization.delete('splitChunks')
+    } else {
+      webpackChainConfig
+        .entry('app')
+        .clear()
+        .add('./src/index.jsx')
+        .end()
     }
   }
 }

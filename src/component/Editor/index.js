@@ -26,7 +26,7 @@ class CodeEditor extends Component {
     code: ''
   };
 
-  updateContent = code => {
+  updateContent = (code) => {
     this.setState({ code }, () => {
       if (this.props.onChange) {
         this.props.onChange(this.state.code)
@@ -34,7 +34,7 @@ class CodeEditor extends Component {
     })
   };
 
-  highlightCode = code => (
+  highlightCode = (code) => (
     <Highlight
       Prism={Prism}
       code={code}
@@ -42,7 +42,7 @@ class CodeEditor extends Component {
       language={this.props.language}
     >
       {({ tokens, getLineProps, getTokenProps }) => (
-        <Fragment>
+        <>
           {tokens.map((line, i) => (
             // eslint-disable-next-line react/jsx-key
             <div {...getLineProps({ line, key: i })}>
@@ -52,7 +52,7 @@ class CodeEditor extends Component {
               ))}
             </div>
           ))}
-        </Fragment>
+        </>
       )}
     </Highlight>
   );
@@ -68,8 +68,7 @@ class CodeEditor extends Component {
     } = this.props
     const { code } = this.state
 
-    const baseTheme =
-      theme && typeof theme.plain === 'object' ? theme.plain : {}
+    const baseTheme = theme && typeof theme.plain === 'object' ? theme.plain : {}
 
     return (
       <Editor

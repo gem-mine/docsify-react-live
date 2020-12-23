@@ -20,8 +20,8 @@ function transform(code, language) {
     presets: [
       ['env', {
         targets: {
-          'ie': '11',
-          'chrome': '75'
+          ie: '11',
+          chrome: '75'
         }
       }],
       'react',

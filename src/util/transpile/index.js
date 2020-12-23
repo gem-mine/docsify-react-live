@@ -29,7 +29,7 @@ export const renderElementAsync = (
   errorCallback
   // eslint-disable-next-line consistent-return
 ) => {
-  const render = element => {
+  const render = (element) => {
     if (typeof element === 'undefined') {
       errorCallback(new SyntaxError('`render` must be called with valid JSX.'))
     } else {

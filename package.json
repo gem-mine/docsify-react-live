@@ -1,21 +1,21 @@
 {
   "name": "@gem-mine/docsify-react-live",
   "version": "1.7.3",
+  "main": "dist/docsify-react-live.min.js",
+  "files": [
+    "dist/docsify-react-live.min.js",
+    "dist/docsify-react-live.min.js.map"
+  ],
   "scripts": {
     "build": "node script/generatecss.js && gms build --report",
     "build:modern": "gms build --modern",
     "cache:clean": "rimraf node_modules/.cache",
     "lint": "gms lint",
     "lint:fix": "gms lint --fix",
+    "publish": "npm publish --access=public",
     "start": "gms dev",
-    "test": "jest",
-    "publish": "npm publish --access=public"
+    "test": "jest"
   },
-  "files": [
-    "dist/docsify-react-live.min.js",
-    "dist/docsify-react-live.min.js.map"
-  ],
-  "main": "dist/docsify-react-live.min.js",
   "dependencies": {
     "@babel/standalone": "^7.11.6",
     "create-react-context": "^0.3.0",
@@ -28,10 +28,10 @@
     "react-simple-code-editor": "^0.10.0"
   },
   "devDependencies": {
-    "@gem-mine/babel-preset-app": "^2.4.1",
-    "@gem-mine/cli-plugin-eslint": "^2.7.3",
-    "@gem-mine/eslint-config-recommend": "^2.4.0",
-    "@gem-mine/script": "^2.7.1",
+    "@gem-mine/babel-preset-app": "^3.2.3-alpha.0",
+    "@gem-mine/cli-plugin-eslint": "^3.3.4-alpha.0",
+    "@gem-mine/eslint-config-recommend": "^3.2.3",
+    "@gem-mine/script": "^2.20.0-alpha.1",
     "babel-plugin-prismjs": "^2.0.1",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",

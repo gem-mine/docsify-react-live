@@ -1,4 +1,4 @@
-exports.fetch = function(str, tags) {
+exports.fetch = function fetch(str, tags) {
   const result = {}
   tags.forEach((tag) => {
     const reg = new RegExp(`<${tag}>(.+)</${tag}>`, 'ms')

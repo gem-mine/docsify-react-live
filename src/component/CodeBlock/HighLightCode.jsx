@@ -14,7 +14,7 @@ export default function HighLightCode({
       language="css"
     >
       {({ tokens, getLineProps, getTokenProps }) => (
-        <Fragment>
+        <>
           {tokens.map((line, i) => (
             // eslint-disable-next-line react/jsx-key
             <div {...getLineProps({ line, key: i })}>
@@ -24,7 +24,7 @@ export default function HighLightCode({
               ))}
             </div>
           ))}
-        </Fragment>
+        </>
       )}
     </Highlight>
   )

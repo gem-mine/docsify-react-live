@@ -20,11 +20,11 @@ export default function codeBlockWrapper(
 
   const desc = marked(codeInfo.desc, {
     gfm: true,
-    highlight: function(code, lang) {
-      if (prism.languages[lang]) {
-        return prism.highlight(code, prism.languages[lang], lang)
+    highlight(_code, _lang) {
+      if (prism.languages[_lang]) {
+        return prism.highlight(_code, prism.languages[_lang], _lang)
       } else {
-        return code
+        return _code
       }
     }
   })
@@ -44,8 +44,7 @@ export default function codeBlockWrapper(
         lang={lang}
         css={codeInfo.css}
         codeShow={codeShow}
-      >
-      </CodeBlock>
+      />
     )
   }
 
