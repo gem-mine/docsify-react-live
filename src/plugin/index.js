@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom'
 import codeBlockWrapper from '../hoc/codeBlockWrapper'
 
 // eslint-disable-next-line import/prefer-default-export
-export const createPlugin = function createPlugin(scope, theme) {
+export const create = function createPlugin(scope, theme) {
   return function DocisfyReactLive() {
     const idPrefix = 'demo-box-react-'
     let id = 0
@@ -15,9 +15,9 @@ export const createPlugin = function createPlugin(scope, theme) {
 
     window.$docsify.markdown = window.$docsify.markdown || {}
     const markdownConfig = window.$docsify.markdown
-    markdownConfig.render = markdownConfig.render || {}
+    markdownConfig.renderer = markdownConfig.renderer || {}
 
-    markdownConfig.render.code = function renderCode(code, lang, ...rest) {
+    markdownConfig.renderer.code = function renderCode(code, lang, ...rest) {
       if ((lang === 'jsx' || lang === 'tsx')
             && /^\/\*\s*react(.+)*\s*\*\//.test(code)) {
         id += 1

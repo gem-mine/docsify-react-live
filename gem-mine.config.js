@@ -6,8 +6,11 @@ module.exports = {
   },
   inlineSVG: true,
   productionSourceMap: true,
+  transpileDependencies: ['@babel/standalone'],
   chainWebpack(webpackChainConfig) {
     if (process.env.NODE_ENV === 'production') {
+      // webpackChainConfig.mode('development')
+
       webpackChainConfig
         .entry('app')
         .clear()
