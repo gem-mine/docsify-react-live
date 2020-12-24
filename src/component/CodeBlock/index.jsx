@@ -93,7 +93,7 @@ export default function CodeBlock({
           display: codeShow ? 'block' : 'none'
         }}
         >
-          <pre className="editor-wrapper" data-lang="jsx">
+          <pre className="editor-wrapper" data-lang={lang || 'jsx'}>
             <code className="code-for-copy">{code}</code>
             <LiveEditor />
           </pre>
