@@ -14,7 +14,12 @@ export const generateElement = ({
   const codeWrapped = `(function __innerReactLiveExport() {
     var exports = {};
     function require(name) {
-      return window[name]
+      if (name === 'react') {
+        return window.React;
+      } else if (name === 'react-dom') {
+        return window.ReactDOM;
+      }
+      return window[name];
     };
     ${transformed}
     return exports.default

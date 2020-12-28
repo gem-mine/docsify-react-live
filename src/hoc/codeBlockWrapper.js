@@ -15,8 +15,13 @@ export default function codeBlockWrapper(
   codeShow = false,
 ) {
   const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className', 'css'])
-
-  const desc = window.marked(codeInfo.desc)
+  let desc
+  if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line global-require
+    desc = require('marked')(codeInfo.desc)
+  } else {
+    desc = window.marked(codeInfo.desc)
+  }
 
   function DemoBlockWrapper() {
     return (

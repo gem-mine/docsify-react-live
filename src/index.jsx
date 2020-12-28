@@ -67,15 +67,15 @@ const codeTS = `
   }
 </style>
 <script>
-import { Button } from 'soui'
+import React, { useState } from 'react'
 
-const text: string = '确定TS'
-
-export default class App extends React.Component {
-  render () {
-    return <Button type="primary" onClick={() => alert('好的')}>{text}</Button>
-  }
+const Demo: React.FC = () => {
+  const [top, setTop] = useState(10)
+  const [bottom, setBottom] = useState(10)
+  return <button>asdasd</button>
 }
+
+export default Demo
 </script>
 `
 

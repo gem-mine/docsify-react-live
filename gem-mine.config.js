@@ -8,6 +8,10 @@ module.exports = {
   productionSourceMap: true,
   transpileDependencies: ['@babel/standalone'],
   chainWebpack(webpackChainConfig) {
+    webpackChainConfig.externals({
+      react: 'React',
+      'react-dom': 'ReactDOM'
+    })
     if (process.env.NODE_ENV === 'production') {
       webpackChainConfig.optimization
         .minimize(false)
@@ -22,11 +26,6 @@ module.exports = {
         .library('ReactLiveBox')
         .libraryTarget('umd')
         .filename('docsify-react-live.min.js')
-
-      webpackChainConfig.externals({
-        react: 'React',
-        'react-dom': 'ReactDOM'
-      })
 
       webpackChainConfig.plugins
         .delete('HtmlWebpackPlugin')
