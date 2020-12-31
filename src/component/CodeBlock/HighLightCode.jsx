@@ -1,16 +1,13 @@
 import React, { Fragment } from 'react'
 import Highlight, { Prism } from 'prism-react-renderer'
-import palenightTheme from '../../constants/palenight'
 
 export default function HighLightCode({
   code,
-  theme
 }) {
   return (
     <Highlight
       Prism={Prism}
       code={code}
-      theme={theme || palenightTheme}
       language="css"
     >
       {({ tokens, getLineProps, getTokenProps }) => (

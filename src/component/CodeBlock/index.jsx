@@ -7,7 +7,6 @@ import LivePreview from '../Live/LivePreview'
 
 import HighLightCode from './HighLightCode'
 
-import palenightTheme from '../../constants/palenight'
 import { createStyle, removeStyle } from '../../util/style'
 import generateGuid from '../../util/guid'
 
@@ -20,7 +19,6 @@ export default function CodeBlock({
   title,
   desc,
   scope,
-  theme,
   lang,
   css,
   codeShow: propCodeShow = false
@@ -60,7 +58,6 @@ export default function CodeBlock({
         transformCode={(_code) => _code}
         scope={{ React, ...scope }}
         disabled={!live}
-        theme={theme || palenightTheme}
         language={lang}
       >
         <div className="code-box-demo">
@@ -103,7 +100,6 @@ export default function CodeBlock({
                 <code>
                   <HighLightCode
                     code={css}
-                    theme={theme}
                   />
                 </code>
               </pre>
