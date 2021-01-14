@@ -68,7 +68,7 @@ export default function CodeBlock({
           <div
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: desc || '下面是代码哦，点击右上角可以复制代码'
+              __html: desc || '下面是代码哦'
             }}
           />
           <div className="code-expand-icon" onClick={() => { setCodeShow(!codeShow) }}>

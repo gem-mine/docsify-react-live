@@ -106,13 +106,18 @@
     > .code-for-copy {
       position: absolute;
       z-index: -999;
+      visibility: hidden;
       overflow: hidden;
-      height: 10px;
-      width: 10px;
+      height: 1px;
+      width: 1px;
     }
 
     &.css {
       border-top: 1px solid #eee;
+    }
+
+    .token-line {
+      height: 24px;
     }
   }
 }
