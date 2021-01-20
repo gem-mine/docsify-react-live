@@ -3,20 +3,21 @@ import codeBlockWrapper from '../hoc/codeBlockWrapper'
 
 // eslint-disable-next-line import/prefer-default-export
 export const create = function createPlugin(scope, theme) {
-  return function DocisfyReactLive() {
+  return function DocisfyReactLive(hook) {
+    let reactRenderedIds = []
     const idPrefix = 'demo-box-react-'
     let id = 0
 
     function renderComponent(Component, elId) {
+      reactRenderedIds.push(elId)
       setTimeout(() => {
-        ReactDOM.render(Component(), document.getElementById(`${elId}`))
+        ReactDOM.render(Component(), document.getElementById(elId))
       })
     }
 
     window.$docsify.markdown = window.$docsify.markdown || {}
     const markdownConfig = window.$docsify.markdown
     markdownConfig.renderer = markdownConfig.renderer || {}
-
     markdownConfig.renderer.code = function renderCode(code, lang, ...rest) {
       if ((lang === 'jsx' || lang === 'tsx')
             && /^\/\*\s*react(.+)*\s*\*\//.test(code)) {
@@ -33,5 +34,12 @@ export const create = function createPlugin(scope, theme) {
         return this.origin.code(code, lang, ...rest)
       }
     }
+
+    hook.beforeEach(() => {
+      reactRenderedIds.forEach((mountedId) => {
+        ReactDOM.unmountComponentAtNode(document.getElementById(mountedId))
+      })
+      reactRenderedIds = []
+    })
   }
 }
