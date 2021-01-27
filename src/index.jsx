@@ -71,8 +71,7 @@ import React, { useState } from 'react'
 
 const Demo: React.FC = () => {
   const [top, setTop] = useState(10)
-  const [bottom, setBottom] = useState(10)
-  return <button>asdasd</button>
+  return <button onClick={() => { setTop(top+1)}}>{top.toString()}</button>
 }
 
 export default Demo

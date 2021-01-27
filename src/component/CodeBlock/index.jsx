@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, {
+  useState, useEffect, useCallback, useMemo
+} from 'react'
 
 import LiveProvider from '../Live/LiveProvider'
 import LiveEditor from '../Live/LiveEditor'
@@ -36,12 +38,17 @@ export default function CodeBlock({
     }
   })
   const [codeShow, setCodeShow] = useState(propCodeShow)
+  const transformCode = useCallback((_code) => _code, [])
+  const insertScope = useMemo(() => ({
+    React, ...scope
+  }), [])
+
   return pureRender ? (
     <div className={`code-box pureRender ${className}`}>
       <LiveProvider
         code={code.trim()}
-        transformCode={(_code) => _code}
-        scope={{ React, ...scope }}
+        transformCode={transformCode}
+        scope={insertScope}
       >
         <div className="code-box-demo">
           <LivePreview />
@@ -55,8 +62,8 @@ export default function CodeBlock({
     <div className={`code-box ${className}`}>
       <LiveProvider
         code={code.trim()}
-        transformCode={(_code) => _code}
-        scope={{ React, ...scope }}
+        transformCode={transformCode}
+        scope={insertScope}
         disabled={!live}
         language={lang}
       >
