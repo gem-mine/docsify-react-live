@@ -4,6 +4,7 @@ module.exports = {
     requireModuleExtension: true,
     extract: false
   },
+  inlineLimit: 9999999,
   inlineSVG: true,
   productionSourceMap: true,
   transpileDependencies: ['@babel/standalone'],
