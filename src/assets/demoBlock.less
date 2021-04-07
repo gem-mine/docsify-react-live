@@ -1,6 +1,5 @@
 .code-box {
   border: 1px solid #ddd;
-
   &:hover {
     border: 1px solid #ccc;
   }
@@ -113,6 +112,46 @@
 
     .token-line {
       min-height: 24px;
+    }
+  }
+
+  &.mobile {
+    display: flex;
+    flex-direction: row;
+    .code-box-demo {
+      margin: 5px 3px;
+      height: 640px;
+      width: 320px;
+      transform: scale3d(1, 1, 1);
+      order: 1;
+      padding: 0px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      .simulator-header {
+        border-radius: 4px 4px 0 0;
+        background: linear-gradient(rgba(55,55,55,.98),#545456);
+        text-align: center;
+        .status-bar {
+          margin: 0 2px;
+          height: 20px;
+          background: url('./statusbar.png') no-repeat;
+          background-position: 2px 5px;
+          background-size: 98%;
+        }
+      }
+      .live-demo {
+        overflow: auto;
+        padding: 5px;
+        height: calc(100% - 20px);
+      }
+    }
+    .code-box-container {
+      flex: 1;
+      order: 0;
+      min-width:0;
+      padding-top: 25px;
+      border-right: 1px dotted #ddd;
     }
   }
 }

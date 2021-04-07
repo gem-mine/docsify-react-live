@@ -105,7 +105,6 @@ export default class LiveProvider extends Component {
     const {
       children, code, language, theme, disabled
     } = this.props
-
     return (
       <LiveContext.Provider
         value={{

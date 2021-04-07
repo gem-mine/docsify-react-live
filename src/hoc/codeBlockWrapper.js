@@ -13,6 +13,7 @@ export default function codeBlockWrapper(
   pureRender = false,
   lang,
   codeShow = false,
+  isMobile = false,
 ) {
   const codeInfo = striptags.fetch(code, ['title', 'script', 'desc', 'style', 'className', 'css'])
   let desc
@@ -38,6 +39,7 @@ export default function codeBlockWrapper(
         lang={lang}
         css={codeInfo.css}
         codeShow={codeShow}
+        isMobile={isMobile}
       />
     )
   }

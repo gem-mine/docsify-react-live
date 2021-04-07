@@ -23,7 +23,9 @@ markdownConfig.renderer.code = function renderCode(code, lang, ...rest) {
     const live = params.split(' ').indexOf('live') > -1
     const pureRender = params.split(' ').indexOf('pureRender') > -1
     const codeShow = params.split(' ').indexOf('codeShow') > -1
-    const Component = codeBlockWrapper(code, undefined, undefined, live, pureRender, lang, codeShow)
+    const isMobile = params.split(' ').indexOf('mobile') > -1
+    const Component = codeBlockWrapper(code, undefined,
+      undefined, live, pureRender, lang, codeShow, isMobile)
     const currentId = `${idPrefix}${id}`
     renderComponent(Component, currentId)
     return `<div id="${currentId}" class="demo-box demo-box-react"/></div/>`
