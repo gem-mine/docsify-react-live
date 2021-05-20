@@ -37,7 +37,10 @@ markdownConfig.renderer.code = function renderCode(code, lang, ...rest) {
 function install(hook) {
   hook.beforeEach(() => {
     reactRenderedIds.forEach((mountedId) => {
-      ReactDOM.unmountComponentAtNode(document.getElementById(mountedId))
+      const mountedNode = document.getElementById(mountedId)
+      if (mountedNode) {
+        ReactDOM.unmountComponentAtNode(mountedNode)
+      }
     })
     reactRenderedIds = []
   })
