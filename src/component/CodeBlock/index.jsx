@@ -77,7 +77,9 @@ export default function CodeBlock({
             )
           }
           <div className="live-demo">
-            <LivePreview />
+            <LivePreview
+              isMobile={isMobile}
+            />
           </div>
         </div>
         <div className="code-box-container">
