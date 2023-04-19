@@ -61,7 +61,7 @@ function inheritStyle(childDocument) {
     childDocument.head.appendChild(newLink)
   })
   // apply text/css
-  document.querySelectorAll('style[type="text/css"]').forEach((link) => {
+  document.querySelectorAll('style').forEach((link) => {
     const newLink = document.createElement('style')
     newLink.appendChild(document.createTextNode(link.innerText))
     childDocument.head.appendChild(newLink)
